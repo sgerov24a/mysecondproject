@@ -29,6 +29,49 @@ def load_model():
     max_iter=100,
     random_state=42
 )
+st.write(f"Digit {i}: {prob:.2%}")
+else:
+    # Fallback: simple threshold-based recognition
+    st.write("## Using fallback recognition")
+    # Simple heuristic based on pixel intensity
+    digit_guess = np.argmax(np.sum(img_array.reshape(8, 8), axis=0)) % 10
+    st.write(f"Estimated digit: **{digit_guess}**")
+st.write(f"Digit {i}: {prob:.2%}")
+else:
+    # Fallback: simple threshold-based recognition
+    st.write("## Using fallback recognition")
+    # Simple heuristic based on pixel intensity
+    digit_guess = np.argmax(np.sum(img_array.reshape(8, 8), axis=0)) % 10
+    st.write(f"Estimated digit: **{digit_guess}**")
+
+# Instructions
+st.sidebar.header("Instructions")
+st.sidebar.write("""
+1. Upload an image of a handwritten digit (0-9)
+2. The image will be resized to 8x8 pixels
+3. AI model will predict the digit
+4. For best results:
+   - White background
+   - Black digit
+   - Centered digit
+   - Minimal noise
+""")
+
+except Exception as e:
+    st.error(f"Error processing image: {e}")
+
+# Instructions
+st.sidebar.header("Instructions")
+st.sidebar.write("""
+1. Upload an image of a handwritten digit (0-9)
+2. The image will be resized to 8x8 pixels
+3. AI model will predict the digit
+4. For best results:
+   - White background
+   - Black digit
+   - Centered digit
+   - Minimal noise
+""")
 
 except Exception as e:
     st.error(f"Model loading error: {e}")
