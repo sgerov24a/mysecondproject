@@ -29,8 +29,7 @@ def load_model():
     max_iter=100,
     random_state=42
 )
-model.fit(X_train, y_train)
-return model
+
 except Exception as e:
     st.error(f"Model loading error: {e}")
     return None
