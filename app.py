@@ -31,7 +31,6 @@ def load_model():
 )
 model.fit(X_train, y_train)
 return model
-
 except Exception as e:
     st.error(f"Model loading error: {e}")
     return None
